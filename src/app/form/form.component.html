@@ -1,0 +1,119 @@
+<div class="columns successAlert"
+  [ngClass]="{'visible':successAlert, 'hidden':!successAlert}">
+  <div class="column">
+    <article class="message is-success">
+      <div class="message-header">
+        <p>Successfully Submitted</p>
+        <button class="delete" (click)='successChange()' aria-label="delete"></button>
+      </div>
+    </article>
+  </div>
+
+</div>
+
+
+<div class="columns  multiForm" >
+  <div class="column is-one-quarter"></div>
+  <div class="column stepCol" *ngIf='showForm'>
+<mat-vertical-stepper [linear]="isLinear" #stepper class="stepForm">
+
+  <mat-step [stepControl]="first">
+    <form #first='ngForm'>
+      <ng-template matStepLabel>Personal Details</ng-template>
+      <div class="field">
+        <label>First Name</label>
+        <div class="control">
+          <input class="input is-info is-small" type="text" placeholder="First Name"
+          matInput required name='firstName' [(ngModel)]='personDetails.firstName'>
+        </div>
+      </div>
+      <div class="field">
+        <label>Last Name</label>
+        <div class="control">
+          <input class="input is-info is-small" type="text" placeholder="Last Name" matInput required name='lastName' [(ngModel)]='personDetails.lastName'>
+        </div>
+      </div>
+      <div class="field">
+        <label>Phone Number</label>
+        <div class="control">
+          <input class="input is-info is-small" type="tel" placeholder="Phone Number" matInput required name='phoneNumber' [(ngModel)]='personDetails.phoneNumber'>
+        </div>
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <div class="control">
+          <input class="input is-info is-small" type="email" placeholder="Email" matInput required name='email' [(ngModel)]='personDetails.email'>
+        </div>
+      </div>
+      <div>
+        <button mat-button matStepperNext type="button" class="next button is-outlined" [disabled]="!first.valid" (click)="moveNext()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="second">
+    <form #second='ngForm'>
+      <ng-template matStepLabel>ID & KRA Pin</ng-template>
+
+      <div class="field">
+        <label>National ID</label>
+        <div class="control">
+          <input class="input is-info is-small" type="text" placeholder="National ID" matInput required name='id' [(ngModel)]='personDetails.id' >
+        </div>
+      </div>
+
+      <div class="field">
+        <label>KRA PIN:</label>
+        <div class="control">
+          <input class="input is-info is-small" type="text" placeholder="KRA PIN" matInput required name='kra' [(ngModel)]='personDetails.kra'>
+        </div>
+      </div>
+      <div>
+        <button mat-button matStepperPrevious type="button" class="button is-outlined">Back</button>
+        <button mat-button matStepperNext type="button" class="next button is-outlined" [disabled]="!second.valid" (click)="moveNext()">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="third">
+    <form #third='ngForm'>
+      <ng-template matStepLabel>Company Information</ng-template>
+      <div class="field">
+        <label>Company Name</label>
+        <div class="control">
+          <input class="input is-info is-small" type="text" placeholder="Email" matInput required name='name' [(ngModel)]='company.name'>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Company Location</label>
+        <div class="control">
+          <input class="input is-info is-small" type="text" placeholder="Email" matInput required name='location' [(ngModel)]='company.location'>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Company Revenue</label>
+        <div class="control">
+          <input class="input is-info is-small" type="number" placeholder="Email" matInput required name='revenue' [(ngModel)]='company.revenue'>
+        </div>
+      </div>
+
+      <div>
+        <button mat-button matStepperPrevious type="button" class="button is-outlined">Back</button>
+        <button mat-button (click)="stepper.reset()" class="reset button is-danger is-inverted" >Reset</button>
+        <button mat-button (click)="submitForm()" class="next button is-success is-inverted" [disabled]="!third.valid" >Submit</button>
+      </div>
+    </form>
+
+  </mat-step>
+
+</mat-vertical-stepper>
+</div>
+
+<div *ngIf='!showForm' class="column stepCol">
+    <app-show-details [company]='company' [personDetails]='personDetails' (editDetails)="changeForm()"></app-show-details>
+</div>
+<div class="column is-one-quarter">
+  <!-- <button mat-button (click)="stepper.reset()" class="next button is-danger is-inverted" >Reset</button> -->
+
+</div>
+</div>

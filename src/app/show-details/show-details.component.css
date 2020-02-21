@@ -1,0 +1,41 @@
+.showDetails {
+  background-color: #424242;
+  color: white;
+  margin-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+label {
+  font-size: 13px;
+  font-weight: bold;
+
+}
+p {
+  font-size: 12px;
+}
+.step h5 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bolder;
+  display: block;
+  height: 10px;
+  padding-top: 10px;
+  color: hsl(0, 0%, 86%);
+}
+.edit {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+hr {
+  width: 10%;
+  align-self: center;
+  border: 2px solid hsl(0, 0%, 86%);
+
+}
+.hr {
+  display: flex;
+  justify-content: center;
+}

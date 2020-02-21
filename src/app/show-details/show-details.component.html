@@ -1,0 +1,75 @@
+<div class="showDetails">
+  <div class="step">
+    <h5>Personal Details</h5>
+    <div class="hr">
+      <hr />
+    </div>
+    <div class="columns">
+      <div class="column">
+        <label>First Name:</label>
+        <p>{{personDetails.firstName}}</p>
+      </div>
+      <div class="column">
+        <label>Last Name:</label>
+        <p>{{personDetails.lastName}}</p>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="column">
+        <label>Phone Number:</label>
+        <p>{{personDetails.phoneNumber}}</p>
+      </div>
+      <div class="column">
+        <label>Email:</label>
+        <p>{{personDetails.email}}</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="step">
+    <h5>National ID & KRA PIN</h5>
+    <div class="hr">
+      <hr />
+    </div>
+    <div class="columns">
+      <div class="column">
+        <label>National ID:</label>
+        <p>{{personDetails.id}}</p>
+      </div>
+      <div class="column">
+        <label>KRA PIN:</label>
+        <p>{{personDetails.kra}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="step">
+    <h5>Company Information</h5>
+    <div class="hr">
+      <hr />
+    </div>
+    <div class="columns">
+      <div class="column">
+        <label>Company Name:</label>
+        <p>{{company.name}}</p>
+      </div>
+
+      <div class="column">
+        <label>Company Revenue:</label>
+        <p>{{company.revenue}}</p>
+      </div>
+
+      <div class="column">
+        <label>Company Location:</label>
+        <p>{{company.location}}</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="edit">
+    <button mat-button (click)="edit()" class=" button is-primary is-inverted" >Edit Details</button>
+  </div>
+</div>
